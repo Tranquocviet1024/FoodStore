@@ -1,0 +1,308 @@
+/*
+ * FoodStore - Checkout Page
+ * Chứa: Form fields, order review table, payment methods, place order button
+ */
+
+/* ========== Fix Bootstrap .col-1 / .col-2 conflict ========== */
+/* Bootstrap dùng .col-1 = 8.33%, WooCommerce cũng dùng .col-1 cho billing/shipping */
+.woocommerce-checkout .col2-set .col-1,
+.woocommerce-checkout .col2-set .col-2,
+.woocommerce-page .col2-set .col-1,
+.woocommerce-page .col2-set .col-2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    float: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* ========== Cột trái: Billing / Shipping (col2-set) ========== */
+.woocommerce-checkout .col2-set {
+    width: 55%;
+    float: left;
+    clear: none;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.woocommerce-checkout .col2-set .col-1,
+.woocommerce-checkout .col2-set .col-2 {
+    padding: 1.5rem;
+    float: none;
+    width: 100%;
+}
+
+.woocommerce-checkout .col2-set h3 {
+    background: linear-gradient(135deg, #198754, #157347);
+    color: #fff;
+    margin: 0 -1.5rem 1.5rem;
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* ========== Cột phải: Order Review ========== */
+.woocommerce-checkout #order_review_heading {
+    width: 40%;
+    float: right;
+    clear: none;
+    background: linear-gradient(135deg, #198754, #157347);
+    color: #fff;
+    padding: 0.9rem 1.4rem;
+    border-radius: 14px 14px 0 0;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0 0;
+    box-sizing: border-box;
+}
+
+.woocommerce-checkout #order_review {
+    width: 40%;
+    float: right;
+    clear: none;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+/* Clearfix */
+.woocommerce-checkout form.checkout::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ========== Form Fields ========== */
+.woocommerce-checkout .form-row {
+    margin-bottom: 1rem;
+    padding: 0;
+    clear: none;
+}
+
+.woocommerce-checkout .form-row label {
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #495057;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.woocommerce-checkout .form-row .input-text,
+.woocommerce-checkout .form-row select,
+.woocommerce-checkout .form-row textarea {
+    width: 100% !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+    border: 1.5px solid #dee2e6 !important;
+    border-radius: 10px !important;
+    background: #f8f9fa !important;
+    color: #212529 !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+    box-sizing: border-box !important;
+}
+
+.woocommerce-checkout .form-row .input-text:focus,
+.woocommerce-checkout .form-row select:focus,
+.woocommerce-checkout .form-row textarea:focus {
+    border-color: #198754 !important;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.15) !important;
+    background: #fff !important;
+    outline: none !important;
+}
+
+.woocommerce-checkout abbr.required {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+/* First/Last: 2 field ngang nhau */
+.woocommerce-checkout .form-row-first {
+    width: 47% !important;
+    float: left !important;
+    clear: left !important;
+}
+
+.woocommerce-checkout .form-row-last {
+    width: 47% !important;
+    float: right !important;
+    clear: none !important;
+}
+
+.woocommerce-checkout .form-row-wide {
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+}
+
+/* ========== Order Review Table ========== */
+.woocommerce-checkout-review-order-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.woocommerce-checkout-review-order-table thead th {
+    background: #f8f9fa;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6c757d;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.woocommerce-checkout-review-order-table tbody td,
+.woocommerce-checkout-review-order-table tfoot td,
+.woocommerce-checkout-review-order-table tfoot th {
+    padding: 0.8rem 1.25rem;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.woocommerce-checkout-review-order-table tfoot .order-total th,
+.woocommerce-checkout-review-order-table tfoot .order-total td {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: #198754;
+    background: #f0fdf4;
+    border-top: 2px solid #198754;
+    border-bottom: none;
+}
+
+/* ========== Payment Methods ========== */
+#payment {
+    background: #fff;
+}
+
+#payment ul.payment_methods {
+    list-style: none !important;
+    padding: 1rem 1.25rem !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #e9ecef !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#payment ul.payment_methods li {
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    padding: 0;
+    background: #fff;
+}
+
+#payment ul.payment_methods li:has(input:checked) {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.1);
+}
+
+#payment ul.payment_methods li label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+#payment ul.payment_methods li input[type="radio"] {
+    accent-color: #198754;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#payment div.payment_box {
+    background: #f0fdf4;
+    border-top: 1px solid #d1fae5;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: #495057;
+    margin: 0;
+}
+
+#payment div.place-order {
+    padding: 1.25rem;
+    background: #fff;
+}
+
+/* ========== Place Order Button ========== */
+#place_order {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.875rem 1rem !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em !important;
+    color: #fff !important;
+    background: linear-gradient(135deg, #198754 0%, #157347 100%) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    box-shadow: 0 4px 16px rgba(25, 135, 84, 0.3) !important;
+    margin: 0 !important;
+}
+
+#place_order:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(25, 135, 84, 0.4) !important;
+}
+
+/* ========== Notices ========== */
+.woocommerce-checkout .woocommerce-info {
+    background: #e0f2fe;
+    border-left: 4px solid #0284c7;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+    list-style: none;
+}
+
+.woocommerce-checkout .woocommerce-error {
+    background: #fee2e2;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+    list-style: none;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+    .woocommerce-checkout .col2-set {
+        width: 100%;
+        float: none;
+        margin-bottom: 1.5rem;
+    }
+
+    .woocommerce-checkout #order_review_heading,
+    .woocommerce-checkout #order_review {
+        width: 100%;
+        float: none;
+    }
+
+    .woocommerce-checkout .form-row-first,
+    .woocommerce-checkout .form-row-last {
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+    }
+}

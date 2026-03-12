@@ -1,0 +1,22 @@
+/*
+Theme Name: FoodStore
+Theme URI: https://example.com/foodstore
+Author: FoodStore Team
+Author URI: https://example.com
+Description: Theme cửa hàng thực phẩm trực tuyến sử dụng Bootstrap 5 và WooCommerce.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: foodstore
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.0
+Tags: e-commerce, food-store, bootstrap, woocommerce
+
+FoodStore - Theme WordPress cho cửa hàng thực phẩm
+*/
+
+/* ========== Base Reset ========== */
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
